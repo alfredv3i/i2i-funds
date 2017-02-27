@@ -1,0 +1,25 @@
+{
+  "name": "fund-i2i",
+  "version": "1.0.0",
+  "description": "sample funding app for iseas2it",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Alfred",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "express-session": "^1.15.1",
+    "mongoose": "^4.8.5",
+    "wiredep": "^4.0.0"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-bower-concat": "^1.0.0",
+    "grunt-wiredep": "^3.0.1",
+    "gulp-google-cdn": "^2.1.0",
+    "gulp-inject": "^4.2.0"
+  }
+}

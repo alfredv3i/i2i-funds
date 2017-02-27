@@ -1,0 +1,22 @@
+{
+  "name": "fund-i2i",
+  "description": "sample funding app for iseas2it",
+  "main": "index.js",
+  "authors": [
+    "Alfred"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#^1.6.2",
+    "bootstrap": "^3.3.7"
+  }
+}
