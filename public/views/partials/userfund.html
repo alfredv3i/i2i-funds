@@ -1,0 +1,46 @@
+<div class="container" style='padding-top:150px;'>
+    <div class="row">
+		<form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend><center>User funding request details</center></legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="requestid">Employee Name</label>
+  <div class="col-md-4">
+    <input id="requestid" name="reqid" placeholder="Name" ng-model='fund.employeeName' class="form-control input-md" required="" type="text">
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="dis">Reason</label>
+  <div class="col-md-4">
+    <textarea class="form-control" id="dis" ng-model='fund.description' name="dis"></textarea>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="date">Amount</label>
+  <div class="col-md-4">
+    <input id="date" name="date" placeholder="Amount in &#8377;" ng-model='fund.amount'
+    class="form-control input-md" type="number" step='500' max='10000'>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="submit"></label><center>
+  <div class="col-md-4">
+    <button id="submit" name="button" ng-click='submitFund()' class="btn btn-default">Submit</button>
+  </div></center>
+</div>
+
+</fieldset>
+</form>
+
+	</div>
+</div>

@@ -1,10 +1,12 @@
-angular.module('FundingApp').factory('User', ['$http', function($http) {
+angular.module('FundingApp').service('User', ['$http', function($http) {
 
-    return {
 
-        save: function(user) {
-            $http.post('api/users', user);
-        }
+    this.save = function(user) {
+        return $http.post('/api/users', user);
+    }
+
+    this.login = function(userLogin) {
+        return $http.post('/api/login', userLogin);
     }
 
 }]);

@@ -6,15 +6,15 @@ angular.module('FundingApp', ['ui.router']).config(['$stateProvider', '$urlRoute
 
       .state('home', {
         url: '/home',
-        // abstract: 'true',
+        abstract: 'true',
         templateUrl: 'views/partials/header.html'
       })
 
       .state('home.login', {
         url: '/login',
-        templateUrl: 'views/partials/login.html'
-        // controller: 'LoginCtrl',
-        // controllerAs: 'vm'
+        templateUrl: 'views/partials/login.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'loginCtrl'
       })
 
       .state('home.register', {
@@ -22,6 +22,13 @@ angular.module('FundingApp', ['ui.router']).config(['$stateProvider', '$urlRoute
         templateUrl: 'views/partials/register.html',
         controller: 'LoginCtrl',
         controllerAs: 'loginCtrl'
+      })
+
+      .state('home.funds', {
+        url: '/funds',
+        templateUrl: 'views/partials/userfund.html',
+        controller: 'FundingCtrl',
+        controllerAs: 'fundCtrl'
       });
 
 }]);
