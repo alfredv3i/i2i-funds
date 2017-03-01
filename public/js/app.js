@@ -26,9 +26,23 @@ angular.module('FundingApp', ['ui.router']).config(['$stateProvider', '$urlRoute
 
       .state('home.funds', {
         url: '/funds',
-        templateUrl: 'views/partials/userfund.html',
+        templateUrl: 'views/partials/fundform.html',
         controller: 'FundingCtrl',
         controllerAs: 'fundCtrl'
+      })
+
+      .state('home.fundpage', {
+        url: '/fundpage',
+        templateUrl: 'views/partials/fundlist.html',
+        controller: 'FundingCtrl',
+        controllerAs: 'fundCtrl'
+      })
+
+      .state('home.adminpage', {
+        url: '/adminpage',
+        templateUrl: 'views/partials/adminpage.html',
+        controller: 'AdminCtrl',
+        controllerAs: 'adminCtrl'
       });
 
 }]);
