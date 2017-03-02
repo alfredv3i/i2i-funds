@@ -6,8 +6,8 @@ angular.module('FundingApp', ['ui.router']).config(['$stateProvider', '$urlRoute
 
       .state('home', {
         url: '/home',
-        abstract: 'true',
-        templateUrl: 'views/partials/header.html'
+        templateUrl: 'views/partials/header.html',
+        controller: 'LoginCtrl'
       })
 
       .state('home.login', {

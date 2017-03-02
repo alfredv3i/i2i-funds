@@ -1,6 +1,6 @@
 <div class="container" style='padding-top:150px;'>
     <div class="row">
-        <form class="form-horizontal">
+        <form class="form-horizontal" ng-submit='submitFund()'>
             <fieldset>
 
                 <!-- Form Name -->
@@ -12,15 +12,18 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="requestid">Employee Name</label>
                     <div class="col-md-4">
-                        <input id="requestid" name="reqid" placeholder="Name" ng-model='fund.employeeName' class="form-control input-md" required="" type="text">
+                        <input id="requestid" name="reqid" placeholder="Name"
+                               ng-model='fund.employeeName' class="form-control input-md"
+                               ng-required='true' type="text">
                     </div>
                 </div>
 
                 <!-- Textarea -->
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="dis">Reason</label>
+                    <label class="col-md-4 control-label" for="dis">Description</label>
                     <div class="col-md-4">
-                        <textarea class="form-control" id="dis" ng-model='fund.description' name="dis"></textarea>
+                        <textarea class="form-control" id="dis" ng-model='fund.description'
+                                  name="dis" ng-required='true'></textarea>
                     </div>
                 </div>
 
@@ -28,7 +31,9 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="date">Amount</label>
                     <div class="col-md-4">
-                        <input id="date" name="date" placeholder="Amount in &#8377;" ng-model='fund.amount' class="form-control input-md" type="number" step='500' max='10000'>
+                        <input id="date" name="date" placeholder="Amount in &#8377;"
+                                ng-model='fund.amount' class="form-control input-md"
+                                type="number" step='500' max='10000' ng-required='true'>
                     </div>
                 </div>
 
@@ -37,7 +42,8 @@
                     <label class="col-md-4 control-label" for="submit"></label>
                     <center>
                         <div class="col-md-4">
-                            <button id="submit" name="button" ng-click='submitFund()' class="btn btn-default">Submit</button>
+                            <button id="submit" name="button" type="submit"
+                                    class="btn btn-success">Submit</button>
                         </div>
                     </center>
                 </div>

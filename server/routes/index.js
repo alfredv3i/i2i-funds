@@ -6,22 +6,16 @@ var auth = jwt({
 
 module.exports = function(app) {
 
-var user = require('../controllers/UserController');
+    var user = require('../controllers/UserController');
 
     app.post('/api/login', user.login);
-    app.post('/api/users', auth, user.create);
+    app.post('/api/users', user.create);
 
-var fund = require('../controllers/FundController');
+    var fund = require('../controllers/FundController');
 
     app.get('/api/funds/:id', auth, fund.getFunds);
-
-    app.route('/api/funds/:id')
+    app.route('/api/funds')
        .get(auth, fund.getPendingFunds)
        .post(auth, fund.create)
        .put(auth, fund.update);
-
-    function test(req, res) {
-        console.log(req.params);
-    }
-
 };

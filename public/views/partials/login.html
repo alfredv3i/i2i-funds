@@ -3,25 +3,26 @@
 		<div class="col-md-4 col-md-offset-4">
     		<div class="panel panel-default">
 			  	<div class="panel-heading">
-			    	<h3 class="panel-title">Please sign in</h3>
+			    	<h3 class="panel-title">Please sign in </h3>
 			 	</div>
 			  	<div class="panel-body">
-			    	<form accept-charset="UTF-8" role="form">
+			    	<form accept-charset="UTF-8" role="form" ng-submit='login()'>
                     <fieldset>
 			    	  	<div class="form-group">
 			    		    <input class="form-control" placeholder="E-mail" ng-model='userLogin.email'
-                  name="email" type="text">
+                  name="email" type="email" ng-required='true'>
 			    		</div>
 			    		<div class="form-group">
 			    			<input class="form-control" placeholder="Password" ng-model='userLogin.password'
-                name="password" type="password" value="">
+                name="password" type="password" value="" ng-required='true'>
 			    		</div>
 			    		<!-- <div class="checkbox">
 			    	    	<label>
 			    	    		<input name="remember" type="checkbox" value="Remember Me"> Remember Me
 			    	    	</label>
 			    	    </div> -->
-			    		<input class="btn btn-lg btn-success btn-block" type="submit" ng-click='login()' value="Login">
+			    		<input class="btn btn-lg btn-success btn-block" type="submit" value="Login"><br>
+              <a href="" ui-sref='home.register'>Register here!!</a>
 			    	</fieldset>
 			      	</form>
 			    </div>
