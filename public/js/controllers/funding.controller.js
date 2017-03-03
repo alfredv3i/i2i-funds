@@ -16,17 +16,18 @@ angular.module('FundingApp').controller('FundingCtrl', ['FundService', '$scope',
         }
 
         $scope.getFunds = function() {
-            FundService.getFunds(UserService.getUserId())
-                .then(function(response) {
-                    $scope.funds = response.data;
-                    if (!$scope.funds.length) {
-                        alert('Your fund list is empty');
-                    }
-                }, function(error) {
-                    console.log(error);
-                    alert('Unable to get funds \n Error ' + error.status + ': ' + error.statusText);
-                })
+            if (UserService.getCurrentUser()) {
+                FundService.getFunds(UserService.getCurrentUser()._id)
+                    .then(function(response) {
+                        $scope.funds = response.data;
+                        if (!$scope.funds.length) {
+                            alert('Your fund list is empty');
+                        }
+                    }, function(error) {
+                        console.log(error);
+                        alert('Unable to get funds \n Error ' + error.status + ': ' + error.statusText);
+                    })
+            }
         }
-
     }
 ]);

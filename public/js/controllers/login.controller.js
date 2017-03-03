@@ -1,5 +1,5 @@
-angular.module('FundingApp').controller('LoginCtrl', ['User', '$scope', '$state', '$window', 'UserService',
-    function(User, $scope, $state, $window, UserService) {
+angular.module('FundingApp').controller('LoginCtrl', ['User', '$scope', '$state', '$window', 'UserService', '$rootScope',
+    function(User, $scope, $state, $window, UserService, $rootScope) {
 
         $scope.addUser = function() {
             if ($scope.user) {
@@ -9,7 +9,8 @@ angular.module('FundingApp').controller('LoginCtrl', ['User', '$scope', '$state'
                         $state.go('home.login');
                         alert('Registration successful');
                     }, function(error) {
-                        alert('Unable to register, Please try again \n Error ' + error.status + ': ' + error.statusText);
+                        alert('Unable to register, Please try again \n Error '
+                        + error.status + ': ' + error.statusText);
                     })
             }
         }
@@ -18,14 +19,15 @@ angular.module('FundingApp').controller('LoginCtrl', ['User', '$scope', '$state'
             if ($scope.userLogin) {
                 User.login($scope.userLogin)
                     .then(function(response) {
-                        $window.localStorage.setItem('token', response.data.token);
-                        if (UserService.getUserRole() == 'employee') {
-                            $state.go('home.funds');
-                        } else if (UserService.getUserRole() == 'admin') {
+                        UserService.setToken(response.data.token);
+                        if ($window.localStorage.getItem('isAdmin')) {
                             $state.go('home.adminpage');
+                        } else {
+                            $state.go('home.funds');
                         }
                     }, function(error) {
-                        alert('Unable to login, Please try again \n Error ' + error.status + ': ' + error.statusText);
+                        alert('Unable to login, Please try again \n Error '
+                        + error.status + ': ' + error.statusText);
                     })
             }
         }
@@ -33,8 +35,8 @@ angular.module('FundingApp').controller('LoginCtrl', ['User', '$scope', '$state'
         $scope.logout = function() {
             if ($window.localStorage.getItem('token')) {
                 if (confirm('Are you sure?')) {
-                    $window.localStorage.removeItem('token');
-                    $state.go('home.login');
+                    $window.localStorage.clear();
+                    $state.go('home.welcome');
                 }
             }
         }
